@@ -24,4 +24,17 @@ class Repo extends Model
     	$uri = "search/repositories?q={$query}&per_page={$page_limit}";
     	return API::get($uri);
     }
+
+    /**
+     * find a particular github repo
+     * @param  string 	$owner github username
+     * @param  string 	$repo  repository name
+     * 
+     * @return json
+     */
+    function find($owner,$repo)
+    {
+    	$uri = "repos/$owner/$repo";
+    	return API::get($uri);
+    }
 }
