@@ -21,10 +21,10 @@ class API extends Model
 		$ch = curl_init();
 
 	    $options = array(
-	    	CURLOPT_URL => getenv(GITHUB_API).$uri, 
+	    	CURLOPT_URL => getenv("GITHUB_API").$uri, 
 	    	CURLOPT_RETURNTRANSFER => 1, 
 	    	CURLOPT_HTTPHEADER => array(
-	    		"User-Agent:".getenv(APP_NAME)));
+	    		"User-Agent:".getenv("APP_NAME")));
 
 	    curl_setopt_array($ch, $options);
 
