@@ -16,7 +16,7 @@ class API extends Model
 	 * 
 	 * @return json | string api result set
 	 */
-    static function get($uri, $json = true)
+    static function get($uri, $array = true)
     {
 		$ch = curl_init();
 
@@ -30,6 +30,6 @@ class API extends Model
 
 	    $data = curl_exec($ch);
 
-	    return $json ? $data: json_decode($data, true);
+	    return $array ? json_decode($data, true) : $data;
     }
 }
