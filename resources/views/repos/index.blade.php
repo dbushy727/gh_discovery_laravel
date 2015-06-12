@@ -21,12 +21,12 @@
 	          	@else
 	          	<div>{{$repo['description']}}</div>
 	          	@endif
-	          	<div class="col-xs-6">
-	          		<i class="fa fa-code-fork"></i>
+	          	<div class="col-xs-6 repo_detail_symbol">
+	          		<i class="fa fa-2x fa-code-fork"></i>
 	          		<div class="fork_count">{{number_format($repo['forks_count'],0)}}</div>
 	          	</div>
-	          	<div class="col-xs-6">
-	          		<i class="fa fa-star-o"></i>
+	          	<div class="col-xs-6 repo_detail_symbol">
+	          		<i class="fa fa-2x fa-star-o"></i>
 	          		<div class="star_count">{{number_format($repo['watchers'],0)}}</div>
 	          	</div>
 	          </div>

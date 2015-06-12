@@ -2825,6 +2825,7 @@
 }
 .ih-item.square.effect4 .info {
   background: #111111;
+  opacity: 0.8;
   height: 0;
   visibility: hidden;
   width: 361px;

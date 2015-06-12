@@ -14,7 +14,7 @@ class Repo extends Model
 	 * 
 	 * @return json
 	 */
-    function search($query, $language = '', $page_limit = 25)
+    function search($query, $language = '', $page_limit = 30)
     {
     	if(!empty($language))
     	{
