@@ -30,6 +30,6 @@ class API extends Model
 
 	    $data = curl_exec($ch);
 
-	    return $json ? json_decode($data, true) : $data;
+	    return $json ? $data: json_decode($data, true);
     }
 }
