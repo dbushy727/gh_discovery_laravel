@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'ReposController@index');
+Route::get('repos', 'ReposController@index');
+Route::get('repos/search', 'ReposController@search');
