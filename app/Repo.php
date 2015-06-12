@@ -37,4 +37,14 @@ class Repo extends Model
     	$uri = "repos/$owner/$repo";
     	return API::get($uri);
     }
+
+    /**
+     * get all repos that have over 10,000 stars
+     * @return json
+     */
+    function getTopDogs()
+    {
+    	$uri = "search/repositories?q=stars:10000..*";
+    	return API::get($uri);
+    }
 }
