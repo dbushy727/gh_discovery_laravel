@@ -16,7 +16,7 @@ class API extends Model
 	 * 
 	 * @return json | string api result set
 	 */
-    function get($uri, $json = true)
+    static function get($uri, $json = true)
     {
 		$ch = curl_init();
 
