@@ -17,7 +17,8 @@ class ReposController extends Controller
 	 */
     public function index()
     {
-    	return Repo::getTopDogs();
+    	$data = Repo::getTopDogs();
+    	return view('repos.index', compact('data'));
     }
 
     /**
@@ -28,7 +29,7 @@ class ReposController extends Controller
     public function search(Request $request)
     {
     	if(empty($request->input())) return redirect('/');
-    	
+
     	$search     = $request->input("q");
     	$language   = $request->input("language");
 
