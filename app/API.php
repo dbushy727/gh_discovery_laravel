@@ -8,21 +8,21 @@ class API extends Model
 {
     /**
      * Initiate get request from github api
-     * @param  string  $uri  api uri to dictate 
+     * @param   string  $uri  api uri to dictate
      * which api to hit with what parameters
-     * 
-     * @param  boolean $json flag to denote whether 
+     *
+     * @param   boolean $json flag to denote whether
      * to return object in json or raw format
-     * 
-     * @return json | string api result set
+     *
+     * @return  json | string api result set
      */
-    static function get($uri, $array = true)
+    public static function get($uri, $array = true)
     {
         $ch = curl_init();
 
         $options = array(
-            CURLOPT_URL => getenv("GITHUB_API").$uri, 
-            CURLOPT_RETURNTRANSFER => 1, 
+            CURLOPT_URL => getenv("GITHUB_API").$uri,
+            CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_HTTPHEADER => array(
                 "User-Agent:".getenv("APP_NAME")));
 

@@ -10,16 +10,16 @@ use App\Repo;
 
 class ReposController extends Controller
 {
-	/**
-	 * Show repos with greater than 10,000 stars
-	 * 
-	 * @return Response
-	 */
+    /**
+     * Show repos with greater than 10,000 stars
+     *
+     * @return Response
+     */
     public function index()
     {
-    	$data = Repo::getTopDogs();
-    	$repos = $data['items'];
-    	return view('repos.index', compact('repos'));
+        $data = Repo::getTopDogs();
+        $repos = $data['items'];
+        return view('repos.index', compact('repos'));
     }
 
     /**
@@ -29,13 +29,15 @@ class ReposController extends Controller
      */
     public function search(Request $request)
     {
-    	if(empty($request->input())) return redirect('/');
+        if (empty($request->input())) {
+            return redirect('/');
+        }
 
-    	$search     = $request->input("q");
-    	$language   = $request->input("language");
+        $search     = $request->input("q");
+        $language   = $request->input("language");
 
-    	$data = Repo::search($search, $language);
-    	$repos = $data['items'];
-    	return view('repos.index', compact('repos'));
+        $data = Repo::search($search, $language);
+        $repos = $data['items'];
+        return view('repos.index', compact('repos'));
     }
 }
