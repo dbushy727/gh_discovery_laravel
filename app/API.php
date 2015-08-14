@@ -19,7 +19,6 @@ class API extends Model
     public static function get($uri, $array = true)
     {
         $ch = curl_init();
-
         $options = array(
             CURLOPT_URL => getenv("GITHUB_API").$uri,
             CURLOPT_RETURNTRANSFER => 1,

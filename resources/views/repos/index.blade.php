@@ -3,9 +3,9 @@
 	<h1>Repos</h1>
 	<div class="row">
 		
-	<pre>
-		{{-- {{var_dump($repos[0])}} --}}
-	</pre>
+	{{-- <pre>
+		{{var_dump($repos[0])}}
+	</pre> --}}
 	@foreach($repos as $repo)
 	<div class="col-sm-6 col-md-4">
 	<!-- normal -->

@@ -20,8 +20,10 @@ class Repo extends Model
         if (!empty($language)) {
             $query .= "+language:$language";
         }
-        
-        $uri = "search/repositories?q={$query}&per_page={$page_limit}";
+
+        $q = rawurlencode($query);
+
+        $uri = "search/repositories?q={$q}&per_page={$page_limit}";
         return API::get($uri);
     }
     /**

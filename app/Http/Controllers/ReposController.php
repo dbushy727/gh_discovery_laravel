@@ -10,6 +10,32 @@ use App\Repo;
 
 class ReposController extends Controller
 {
+    private $offline_data = [
+        [
+            "full_name" => "User1/Repo1",
+            "description" => "Gangsta Repo",
+            "forks_count" => 1003,
+            "watchers" => 83,
+            "html_url" => "https://www.google.com",
+            "owner" => ["avatar_url" => "/images/kitten.jpeg"]
+        ],
+        [
+            "full_name" => "User1/Repo1",
+            "description" => "Gangsta Repo",
+            "forks_count" => 1003,
+            "watchers" => 83,
+            "html_url" => "https://www.google.com",
+            "owner" => ["avatar_url" => "/images/kitten.jpeg"]
+        ],
+        [
+            "full_name" => "User1/Repo1",
+            "description" => "Gangsta Repo",
+            "forks_count" => 1003,
+            "watchers" => 83,
+            "html_url" => "https://www.google.com",
+            "owner" => ["avatar_url" => "/images/kitten.jpeg"]
+        ]
+    ];
     /**
      * Show repos with greater than 10,000 stars
      *
@@ -17,8 +43,10 @@ class ReposController extends Controller
      */
     public function index()
     {
-        $data = Repo::getTopDogs();
+        $repo = new Repo();
+        $data = $repo->getTopDogs();
         $repos = $data['items'];
+        // $repos = $this->offline_data;
         return view('repos.index', compact('repos'));
     }
 
@@ -36,7 +64,11 @@ class ReposController extends Controller
         $search     = $request->input("q");
         $language   = $request->input("language");
 
-        $data = Repo::search($search, $language);
+        // var_dump($search);
+        // var_dump($language);
+        // exit;
+        $repo = new Repo();
+        $data = $repo->search($search, $language);
         $repos = $data['items'];
         return view('repos.index', compact('repos'));
     }
